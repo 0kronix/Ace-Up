@@ -1,0 +1,21 @@
+{
+  "id": "aceup",
+  "name": "Ace Up",
+  "display_name": "Ace Up",
+  "author": [
+    "Okronix",
+  ],
+  "description": "Balatro Mod",
+  "prefix": "ace",
+  "main_file": "main.lua",
+  "priority": 0,
+  "badge_colour": "5d5e8d",
+  "badge_text_colour": "FFFFFF",
+  "version": "0.1.1",
+  "icon_path": "modicon.png",
+  "icon_width": 34,
+  "dependencies": [
+    "Steamodded (>=26.829.0)"
+  ],
+  "conflicts": []
+}
