@@ -11,3 +11,26 @@ function ACE.ease_blind(percent)
         end)
     }))
 end
+
+function ACE.in_table(tbl, val)
+    for i, v in ipairs(tbl) do
+        if v == val then
+            return true
+        end
+    end
+    return false
+end
+
+function ACE.is_only_different_suits(hand)
+    local suits = {}
+
+    for _, scoring_card in ipairs(hand) do
+        if ACE.in_table(suits, scoring_card.base.suit) then
+            return false
+        else
+            table.insert(suits, scoring_card.base.suit)
+        end
+    end
+
+    return true
+end
