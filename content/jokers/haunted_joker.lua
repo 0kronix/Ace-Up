@@ -3,6 +3,7 @@ SMODS.Joker {
 
     atlas = "jokers",
     pos = { x = 9, y = 0 },
+    attributes = { "tarot" },
 
     rarity = 2,
     cost = 4,

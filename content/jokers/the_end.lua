@@ -6,6 +6,7 @@ SMODS.Joker {
 
     rarity = 3,
     cost = 8,
+    attributes = { "boss_blind", "skip" },
 
     blueprint_compat = false,
     eternal_compat = true,

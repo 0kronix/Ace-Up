@@ -6,6 +6,7 @@ SMODS.Joker {
 
     rarity = 1,
     cost = 4,
+    attributes = { "economy" },
 
     blueprint_compat = true,
     eternal_compat = true,

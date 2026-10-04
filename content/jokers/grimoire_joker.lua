@@ -6,6 +6,7 @@ SMODS.Joker {
 
     rarity = 2,
     cost = 6,
+    attributes = { "hand_type", "suit", "generation", "spectral" },
 
     blueprint_compat = true,
     eternal_compat = true,
