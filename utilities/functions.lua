@@ -34,3 +34,12 @@ function ACE.is_only_different_suits(hand)
 
     return true
 end
+
+ACE.get_pos = function(card, area)
+    for i, v in ipairs(area) do
+        if v == card then
+            return i
+        end
+    end
+    return 0
+end

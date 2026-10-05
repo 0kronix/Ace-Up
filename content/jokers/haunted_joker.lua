@@ -21,7 +21,9 @@ SMODS.Joker {
 
     loc_vars = function(self, info_queue, card)
         return {
-            card.ability.extra.percent
+            vars = {
+                card.ability.extra.percent
+            }
         }
     end,
 

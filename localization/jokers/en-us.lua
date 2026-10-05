@@ -1,13 +1,65 @@
 return {
     descriptions = {
         Joker = {
+            j_ace_bad_cupcake = {
+                name = "Bad Cupcake",
+                text = {
+                    {
+                        "Each {C:attention}scored card{} have",
+                        "{C:green}#1# in #2#{} chance to get",
+                        "{C:attention}random seal{} when scored",
+                    },
+                    {
+                        "{C:red}Self destructs{} after",
+                        "{C:red}#3#{} fails or {C:green}#4#{} seals",
+                    }
+                }
+            },
+            j_ace_balloon_jimbo = {
+                name = "Balloon Jimbo",
+                text = {
+                    "Gains {C:chips}+#2#{} Chips if",
+                    "{C:attention}nothing{} was bought",
+                    "in the {C:attention}shop",
+                    "{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)",
+                }
+            },
+            j_ace_bomb = {
+                name = "Bomb",
+                text = {
+                    {
+                        "Cards {C:attention}without{} enhancement",
+                        "gives {X:mult,C:white}X#1#{} Mult when scored",
+                    },
+                    {
+                        "{C:red}Destroys{} self and {C:attention}adjacent",
+                        "Jokers, if hand is {C:ace_onfire}on fire",
+                    }
+                }
+            },
+            j_ace_brain_invaders = {
+                name = "Brain Invaders",
+                text = {
+                    "This Joker gains {C:mult}+#2#{} Mult",
+                    "per {C:attention}consecutive{} using",
+                    "the same {C:planet}Planet{} card",
+                    "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)",
+                }
+            },
             j_ace_computer_joker = {
                 name = "Computer Joker",
                 text = {
                     "{C:attention}+#1#{} hand size for each",
                     "{C:green}reroll{} in the {C:attention}shop",
                     "{C:inactive}(Resets each round, max of {C:attention}+#3#{C:inactive})",
-                    "{C:inactive}(Currently {C:attention}+#2#{C:inactive} hand size)"
+                    "{C:inactive}(Currently {C:attention}+#2#{C:inactive} hand size)",
+                }
+            },
+            j_ace_crimson_joker = {
+                name = "Crimson Joker",
+                text = {
+                    "All {C:attention}suits{} are {C:attention}considered",
+                    "to be {C:hearts}Hearts",
                 }
             },
             j_ace_crumpled_banknote = {
@@ -15,7 +67,7 @@ return {
                 text = {
                     "Changes its {C:attention}sell value{} to a",
                     "random one from {C:money}$#1#{} to {C:money}$#2#",
-                    "at end of round"
+                    "at end of round",
                 }
             },
             j_ace_grimoire_joker = {
@@ -24,22 +76,22 @@ return {
                     "If {C:attention}poker hand{} is a {C:attention}#1#",
                     "containing {C:attention}4{} different {C:attention}suits{},",
                     "create a random {C:spectral}Spectral{} card",
-                    "{C:inactive}(Must have room)"
+                    "{C:inactive}(Must have room)",
                 }
             },
             j_ace_haunted_joker = {
                 name = "Haunted Joker",
                 text = {
                     "Decrease {C:attention}Blind requirement",
-                    "by {C:attention}10%{} when {C:tarot}Tarot{}",
-                    "card is used"
+                    "by {C:attention}#1#%{} when {C:tarot}Tarot{}",
+                    "card is used",
                 }
             },
             j_ace_joke_bottom = {
                 name = "Joke Bottom",
                 text = {
                     "Gives {C:money}$#1#{} if played",
-                    "{C:attention}poker hand{} is on {C:attention}1{} level"
+                    "{C:attention}poker hand{} is on {C:attention}1{} level",
                 }
             },
             j_ace_leprechaun = {
@@ -48,7 +100,17 @@ return {
                     "Gives {C:green}+#2#{} to all {C:attention}listed",
                     "{C:green}probabilities{} for every",
                     "{C:money}$#1#{} you have",
-                    "{C:inactive}(max of {C:green}+#4#{C:inactive}, Currently {C:green}+#3#{C:inactive} prob.)"
+                    "{C:inactive}(max of {C:green}+#4#{C:inactive}, Currently {C:green}+#3#{C:inactive} prob.)",
+                }
+            },
+            j_ace_target_joker = {
+                name = "Target Joker",
+                text = {
+                    "When entering a {C:attention}shop{}, one",
+                    "random card become a {C:attention}target",
+                    "This Joker gains {C:mult}+#2#{} Mult when",
+                    "{C:attention}target{} is {C:attention}purchased",
+                    "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
                 }
             },
             j_ace_the_end = {
@@ -56,7 +118,16 @@ return {
                 text = {
                     "Disables effect of {C:attention}Boss Blind",
                     "if no {C:attention}Blinds{} was",
-                    "{C:red}skipped{} during {C:attention}Ante"
+                    "{C:red}skipped{} during {C:attention}Ante",
+                }
+            },
+            j_ace_villian_hologram = {
+                name = "Villian Hologram",
+                text = {
+                    "This Joker gains {X:mult,C:white}X#2#{} Mult",
+                    "if {C:attention}played hand{} contains",
+                    "the {C:attention}previous{} one",
+                    "{C:inactive}(Currently {X:mult,C:white}X#1#{C:inactive} Mult)",
                 }
             },
         }
