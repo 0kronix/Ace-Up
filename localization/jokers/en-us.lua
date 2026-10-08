@@ -94,6 +94,14 @@ return {
                     "{C:attention}poker hand{} is on {C:attention}1{} level",
                 }
             },
+            j_ace_joker_window = {
+                name = "Joker Window",
+                text = {
+                    "{C:mult}+#1#{} Mult",
+                    "Lose {C:money}$#2#{} every",
+                    "{C:attention}#4# {C:inactive}[#3#]{} rounds",
+                }
+            },
             j_ace_leprechaun = {
                 name = "Leprechaun",
                 text = {
@@ -101,6 +109,37 @@ return {
                     "{C:green}probabilities{} for every",
                     "{C:money}$#1#{} you have",
                     "{C:inactive}(max of {C:green}+#4#{C:inactive}, Currently {C:green}+#3#{C:inactive} prob.)",
+                }
+            },
+            j_ace_parallax_joker = {
+                name = "Parallax Joker",
+                text = {
+                    "Gives {X:mult,C:white}X#1#{} Mult, if {C:attention}number",
+                    "of {C:attention}scored cards{} equals",
+                    "the {C:attention}number{} of your {C:attention}Jokers",
+                }
+            },
+            j_ace_schemajoker = {
+                name = "Schemajoker",
+                text = {
+                    "Scored cards gives {C:mult}+Mult",
+                    "equals to the {C:attention}number{} of cards in",
+                    "{C:attention}full deck{} with the same {C:attention}suit",
+                }
+            },
+            j_ace_shopkeeper_joker = {
+                name = "Shopkeeper Joker",
+                text = {
+                    "Buying {C:attention}Booster Packs",
+                    "{C:green}rerolls{} the {C:attention}shop",
+                }
+            },
+            j_ace_stellar_dice = {
+                name = "Stellar Dice",
+                text = {
+                    "{C:green}#1# in #2#{} chance to upgrade",
+                    "every {C:legendary}poker hand{} by {C:attention}#3#{} level",
+                    "after using {C:planet}Planet{} card",
                 }
             },
             j_ace_target_joker = {
@@ -128,6 +167,13 @@ return {
                     "if {C:attention}played hand{} contains",
                     "the {C:attention}previous{} one",
                     "{C:inactive}(Currently {X:mult,C:white}X#1#{C:inactive} Mult)",
+                }
+            },
+            j_ace_whale = {
+                name = "Whale",
+                text = {
+                    "Reroll {C:attention}Boss Blind",
+                    "when {C:red}skipping{} {C:attention}Blind",
                 }
             },
         }
