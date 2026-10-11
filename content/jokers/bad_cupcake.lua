@@ -34,7 +34,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if not context.blueprint then
             if context.individual and context.cardarea == G.play then
-                if SMODS.pseudorandom_probability(card, 'cupcake', 1, card.ability.extra.odds) then
+                if SMODS.pseudorandom_probability(card, card.config.center.key, 1, card.ability.extra.odds) then
                     card.ability.extra.seals = card.ability.extra.seals - 1
                     local target_card = context.other_card
 

@@ -32,7 +32,7 @@ SMODS.Joker {
 
     calculate = function(self, card, context)
         if context.using_consumeable and context.consumeable.ability.set == "Planet" then
-            if SMODS.pseudorandom_probability(card, 'stellar_dice', 1, card.ability.extra.odds) then
+            if SMODS.pseudorandom_probability(card, card.config.center.key, 1, card.ability.extra.odds) then
                 ACE.upgrade_all_hands(card, card.ability.extra.level)
             end
         end

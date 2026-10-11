@@ -12,6 +12,8 @@ function ACE.ease_blind(percent)
     }))
 end
 
+
+
 function ACE.in_table(tbl, val)
     for i, v in ipairs(tbl) do
         if v == val then
@@ -20,6 +22,8 @@ function ACE.in_table(tbl, val)
     end
     return false
 end
+
+
 
 function ACE.is_only_different_suits(hand)
     local suits = {}
@@ -35,6 +39,8 @@ function ACE.is_only_different_suits(hand)
     return true
 end
 
+
+
 ACE.get_pos = function(card, area)
     for i, v in ipairs(area) do
         if v == card then
@@ -43,6 +49,8 @@ ACE.get_pos = function(card, area)
     end
     return 0
 end
+
+
 
 ACE.upgrade_all_hands = function(card, level)
     update_hand_text({sound = 'button', volume = 0.7, pitch = 0.8, delay = 0.3}, {handname=localize('k_all_hands'),chips = '...', mult = '...', level=''})
@@ -71,6 +79,8 @@ ACE.upgrade_all_hands = function(card, level)
     card:juice_up(0.3, 0.5)
 end
 
+
+
 ACE.count_suits_in_deck = function(suit)
     local count = 0
 
@@ -82,6 +92,46 @@ ACE.count_suits_in_deck = function(suit)
 
     return count
 end
+
+
+
+function ACE.random_legendary_joker(seed, exclude_key)
+    local pool = {}
+
+    for _, center in ipairs(G.P_JOKER_RARITY_POOLS[4] or {}) do
+        local in_pool = SMODS.add_to_pool(center)
+
+        if in_pool
+            and center.key ~= exclude_key
+            and not G.GAME.banned_keys[center.key] then
+            pool[#pool + 1] = center
+        end
+    end
+
+    return pseudorandom_element(pool, pseudoseed(seed))
+end
+
+
+
+function ACE.create_tag(tag, seed)
+    local tag_pool = get_current_pool('Tag')
+    local it = 1
+
+    if tag == nil then
+        tag = pseudorandom_element(tag_pool, seed)
+    else
+        return add_tag(Tag(tag, false, 'Small'))
+    end
+
+    while tag == 'UNAVAILABLE' do
+        it = it + 1
+        tag = pseudorandom_element(tag_pool, seed .. it)
+    end
+
+    return add_tag(Tag(tag, false, 'Small'))
+end
+
+
 
 --#region Multi-layered Cards
 -- Stolen from TWIMG mod

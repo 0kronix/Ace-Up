@@ -65,7 +65,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if not context.blueprint then
             if context.starting_shop then
-                local item = pseudorandom_element(G.shop_jokers.cards, "target")
+                local item = pseudorandom_element(G.shop_jokers.cards, card.config.center.key)
                 card.ability.extra.target = item and item.config.center or nil
             end
 

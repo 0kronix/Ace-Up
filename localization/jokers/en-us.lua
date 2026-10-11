@@ -1,6 +1,20 @@
 return {
     descriptions = {
         Joker = {
+            j_ace_art_block = {
+                name = "Art Block",
+                text = {
+                    {
+                        "{C:mult}X#1#{} Mult",
+                        "{C:red}self destructs",
+                        "after {C:attention}#2#{} rounds",
+                    },
+                    {
+                        "{C:attention}+#3#{} round if {C:attention}Blind",
+                        "is beaten in {C:attention}1{} hand",
+                    }
+                }
+            },
             j_ace_bad_cupcake = {
                 name = "Bad Cupcake",
                 text = {
@@ -46,6 +60,14 @@ return {
                     "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)",
                 }
             },
+            j_ace_cactus_joker = {
+                name = "Cactus Joker",
+                text = {
+                    "When {C:attention}Big Blind{} is defeated,",
+                    "create {C:attention}1 Tag{} for each",
+                    "{C:attention}unused{} hand",
+                }
+            },
             j_ace_computer_joker = {
                 name = "Computer Joker",
                 text = {
@@ -70,6 +92,13 @@ return {
                     "at end of round",
                 }
             },
+            j_ace_gelatin_joker = {
+                name = "Gelatin Joker",
+                text = {
+                    "{C:attention}Transforms{} into a random",
+                    "{C:legendary}Legendary{} Joker on {C:attention}Ante 8",
+                }
+            },
             j_ace_grimoire_joker = {
                 name = "Grimoire Joker",
                 text = {
@@ -79,12 +108,30 @@ return {
                     "{C:inactive}(Must have room)",
                 }
             },
+            j_ace_handcar = {
+                name = "Handcar",
+                text = {
+                    "This Joker gains {C:chips}+#2#{} Chips",
+                    "when a {C:attention}Pair{} is {C:red}discarded",
+                    "{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)",
+                }
+            },
             j_ace_haunted_joker = {
                 name = "Haunted Joker",
                 text = {
                     "Decrease {C:attention}Blind requirement",
                     "by {C:attention}#1#%{} when {C:tarot}Tarot{}",
                     "card is used",
+                }
+            },
+            j_ace_hybrid_suit = {
+                name = "Hybrid Suit",
+                text = {
+                    "When {C:tarot}Suit Change Tarot{} card",
+                    "is used, {C:attention}create{} random",
+                    "{C:tarot}Suit Change Tarot{} card",
+                    "{C:inactive}(Once per round)",
+                    "{C:inactive}(Must have room)",
                 }
             },
             j_ace_joke_bottom = {
@@ -111,6 +158,14 @@ return {
                     "{C:inactive}(max of {C:green}+#4#{C:inactive}, Currently {C:green}+#3#{C:inactive} prob.)",
                 }
             },
+            j_ace_match_three = {
+                name = "Match Three",
+                text = {
+                    "{C:red}Destroys{} all scored cards",
+                    "after scoring if {C:attention}played hand{}",
+                    'is {C:attention}"of a Kind"{} type',
+                }
+            },
             j_ace_parallax_joker = {
                 name = "Parallax Joker",
                 text = {
@@ -132,6 +187,14 @@ return {
                 text = {
                     "Buying {C:attention}Booster Packs",
                     "{C:green}rerolls{} the {C:attention}shop",
+                }
+            },
+            j_ace_steam_joker = {
+                name = "Steam Joker",
+                text = {
+                    "If {C:red}discard{} contain",
+                    "only {C:attention}1{} card, {C:blue}play{} it",
+                    "{C:inactive}(Once per round)",
                 }
             },
             j_ace_stellar_dice = {
