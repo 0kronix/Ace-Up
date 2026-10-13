@@ -9,7 +9,7 @@ SMODS.Joker {
     attributes = { "joker" },
 
     blueprint_compat = false,
-    eternal_compat = true,
+    eternal_compat = false,
     perishable_compat = true,
 
     unlocked = true,

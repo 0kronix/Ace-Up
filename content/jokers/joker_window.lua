@@ -48,7 +48,7 @@ SMODS.Joker {
 
 	calc_dollar_bonus = function(self, card)
         if card.ability.extra.cur_rounds <= 0 then
-        	card.ability.extra.rounds = 5
+        	card.ability.extra.cur_rounds = card.ability.extra.rounds
 			return (-card.ability.extra.cost)
 		end
     end

@@ -6,7 +6,6 @@ return {
                 text = {
                     "Give {C:money}$#1#{} for each {C:attention}Joker",
                     "with the same {C:attention}rarity",
-                    "at end of round",
                 }
             },
         }

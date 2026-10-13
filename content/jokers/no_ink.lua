@@ -1,5 +1,5 @@
 SMODS.Joker {
-    key = "hybrid_suit",
+    key = "no_ink",
 
     atlas = "jokers",
     pos = { x = 2, y = 2 },
@@ -50,7 +50,7 @@ SMODS.Joker {
                         trigger = 'after',
                         delay = 0.4,
                         func = function()
-                            local new_card = pseudorandom_element(suit_change, "hybrid_suit" .. G.GAME.round_resets.ante)
+                            local new_card = pseudorandom_element(suit_change, "no_ink" .. G.GAME.round_resets.ante)
                             SMODS.add_card{ key = new_card }
                             return true
                         end

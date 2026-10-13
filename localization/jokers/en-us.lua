@@ -4,15 +4,8 @@ return {
             j_ace_art_block = {
                 name = "Art Block",
                 text = {
-                    {
-                        "{C:mult}X#1#{} Mult",
-                        "{C:red}self destructs",
-                        "after {C:attention}#2#{} rounds",
-                    },
-                    {
-                        "{C:attention}+#3#{} round if {C:attention}Blind",
-                        "is beaten in {C:attention}1{} hand",
-                    }
+                    "Skipping a {C:attention}Booster Pack",
+                    "{C:attention}levels up{} random {C:attention}poker hand",
                 }
             },
             j_ace_bad_cupcake = {
@@ -99,6 +92,13 @@ return {
                     "{C:legendary}Legendary{} Joker on {C:attention}Ante 8",
                 }
             },
+            j_ace_gold_bar = {
+                name = "Gold Bar",
+                text = {
+                    "{C:attention}Gold{} cards can",
+                    "be {C:attention}sold{} for {C:money}$#1#",
+                }
+            },
             j_ace_grimoire_joker = {
                 name = "Grimoire Joker",
                 text = {
@@ -122,16 +122,6 @@ return {
                     "Decrease {C:attention}Blind requirement",
                     "by {C:attention}#1#%{} when {C:tarot}Tarot{}",
                     "card is used",
-                }
-            },
-            j_ace_hybrid_suit = {
-                name = "Hybrid Suit",
-                text = {
-                    "When {C:tarot}Suit Change Tarot{} card",
-                    "is used, {C:attention}create{} random",
-                    "{C:tarot}Suit Change Tarot{} card",
-                    "{C:inactive}(Once per round)",
-                    "{C:inactive}(Must have room)",
                 }
             },
             j_ace_joke_bottom = {
@@ -158,6 +148,19 @@ return {
                     "{C:inactive}(max of {C:green}+#4#{C:inactive}, Currently {C:green}+#3#{C:inactive} prob.)",
                 }
             },
+            j_ace_lollipop_joker = {
+                name = "Lollipop Joker",
+                text = {
+                    {
+                        "{X:mult,C:white}X#1#{} Mult, {C:attention}consumes",
+                        "after {C:attention}#2#{} rounds",
+                    },
+                    {
+                        "{C:attention}+#3#{} round if {C:attention}Blind",
+                        "is beaten in {C:attention}1{} hand",
+                    }
+                }
+            },
             j_ace_match_three = {
                 name = "Match Three",
                 text = {
@@ -166,12 +169,30 @@ return {
                     'is {C:attention}"of a Kind"{} type',
                 }
             },
+            j_ace_no_ink = {
+                name = "No Ink",
+                text = {
+                    "When {C:tarot}Suit Change Tarot{} card",
+                    "is used, {C:attention}create{} random",
+                    "{C:tarot}Suit Change Tarot{} card",
+                    "{C:inactive}(Once per round)",
+                    "{C:inactive}(Must have room)",
+                }
+            },
             j_ace_parallax_joker = {
                 name = "Parallax Joker",
                 text = {
                     "Gives {X:mult,C:white}X#1#{} Mult, if {C:attention}number",
                     "of {C:attention}scored cards{} equals",
                     "the {C:attention}number{} of your {C:attention}Jokers",
+                }
+            },
+            j_ace_recall = {
+                name = "Recall",
+                text = {
+                    "Return {C:attention}1{} of the last {C:attention}#1#",
+                    "{C:red}destroyed {C:attention}playing cards{} to",
+                    "your {C:attention}deck{} at end of round",
                 }
             },
             j_ace_schemajoker = {
@@ -187,6 +208,15 @@ return {
                 text = {
                     "Buying {C:attention}Booster Packs",
                     "{C:green}rerolls{} the {C:attention}shop",
+                }
+            },
+            j_ace_sparky = {
+                name = "Sparky",
+                text = {
+                    "This Joker gains {C:mult}+Mult",
+                    "equal to its {C:attention}sell value",
+                    "at end of round",
+                    "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)",
                 }
             },
             j_ace_steam_joker = {

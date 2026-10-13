@@ -9,7 +9,7 @@ SMODS.Joker {
     attributes = { "chance", "seals" },
 
     blueprint_compat = false,
-    eternal_compat = true,
+    eternal_compat = false,
     perishable_compat = true,
 
     unlocked = true,
@@ -58,12 +58,7 @@ SMODS.Joker {
                 end
 
                 if card.ability.extra.seals <= 0 or card.ability.extra.fails <= 0 then
-                    SMODS.destroy_cards(card, nil, nil, true)
-                    return {
-                        message = localize('k_eaten_ex'),
-                        card = card,
-                        message_card = card
-                    }
+                    ACE.consume(card)
                 end
             end
         end

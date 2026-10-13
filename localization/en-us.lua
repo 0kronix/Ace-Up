@@ -3,6 +3,7 @@ return {
         dictionary = {
             ace_failed_ex = "Failed!",
             ace_boom_ex = "BOOM!",
+            ace_return_ex = "Returned!",
         },
         v_dictionary = {
             k_ace_plus_hand_size = "+#1# hand size",

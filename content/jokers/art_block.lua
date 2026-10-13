@@ -6,7 +6,7 @@ SMODS.Joker {
     attributes = { "xmult" },
 
     rarity = 2,
-    cost = 7,
+    cost = 6,
 
     blueprint_compat = true,
     eternal_compat = true,
@@ -16,51 +16,19 @@ SMODS.Joker {
     discovered = true,
 
     config = {
-        extra = { xmult = 3, rounds = 3, rounds_gain = 1 }
+        extra = {}
     },
 
     loc_vars = function(self, info_queue, card)
         return {
-            vars = {
-                card.ability.extra.xmult,
-                card.ability.extra.rounds,
-                card.ability.extra.rounds_gain
-            }
+            vars = {}
         }
     end,
 
     calculate = function(self, card, context)
-        if context.joker_main then
-            return {
-                xmult = card.ability.extra.xmult
-            }
-        end
-
-        if not context.blueprint and context.end_of_round and context.main_eval then
-            if G.GAME.current_round.hands_played == 1 then
-                card.ability.extra.rounds = card.ability.extra.rounds + card.ability.extra.rounds_gain
-                return {
-                    message = localize( {
-                        type = "variable",
-                        key = "k_ace_plus_round",
-                        vars = { card.ability.extra.rounds_gain }
-                    } )
-                }
-            else
-                card.ability.extra.rounds = card.ability.extra.rounds - card.ability.extra.rounds_gain
-
-                if card.ability.extra.rounds <= 0 then
-                    SMODS.destroy_cards(card)
-                end
-
-                return {
-                    message = localize( {
-                        type = "variable",
-                        key = "k_ace_minus_round",
-                        vars = { card.ability.extra.rounds_gain }
-                    } )
-                }
-            end
+        if context.skipping_booster then
+            local random_hand = pseudorandom_element(ACE.get_visible_hands(), card.config.center.key)
+            SMODS.smart_level_up_hand(card, random_hand, nil, 1)
         end
     end
 }

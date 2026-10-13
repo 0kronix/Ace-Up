@@ -17,8 +17,8 @@ SMODS.Edition {
     end,
 
     calculate = function(self, card, context)
-        if context.end_of_round and context.main_eval then
-            local dollars = #ACE.count_jokers_with_rarity(card.config.center.rarity) or 0
+        if context.pre_joker or (context.main_scoring and context.cardarea == G.play) then
+            local dollars = #ACE.get_jokers_with_rarity(card.config.center.rarity) or 0
 
             if dollars ~= 0 then
                 return {
