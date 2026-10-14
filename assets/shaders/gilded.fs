@@ -38,7 +38,7 @@ vec4 effect(vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords)
     if (lum < 0.25) base = mix(gold_deep, gold_dark, lum / 0.25);
     else if (lum < 0.55) base = mix(gold_dark, gold_mid, (lum - 0.25) / 0.30);
     else if (lum < 0.80) base = mix(gold_mid, gold_light, (lum - 0.55) / 0.25);
-    else base = mix(gold_light, gold_white, (lum - 0.80) / 0.20);
+    else base = mix(gold_light, gold_white, (lum - 0.80) / 0.5);
 
     float sheen = smoothstep(0.65, 1.0, uv.x * 0.7 + uv.y * 0.3 + lum * 0.4 + sin(time * 2.0) * 0.1 + gilded.x * 0.0001);
     base = mix(base, gold_white, sheen * 0.6);

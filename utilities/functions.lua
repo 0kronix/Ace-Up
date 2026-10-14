@@ -237,20 +237,6 @@ end
 
 
 
-ACE.get_jokers_with_rarity = function(rarity)
-    local jokers = {}
-
-    for _, joker in ipairs(G.jokers.cards) do
-        if joker.config.center.rarity == rarity then
-            table.insert(jokers, joker)
-        end
-    end
-
-    return jokers
-end
-
-
-
 function ACE.is_gold_card(card)
     return card
         and card.config.center
