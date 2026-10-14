@@ -61,6 +61,14 @@ return {
                     "{C:attention}unused{} hand",
                 }
             },
+            j_ace_collectible_card = {
+                name = "Collectible Card",
+                text = {
+                    "This Joker gains {X:mult,C:white}X#1#{} Mult",
+                    "every {C:money}$#2# {C:inactive}[#3#]{} of {C:attention}solded{} cards",
+                    "{C:inactive}(Currently {X:mult,C:white}X#4#{C:inactive} Mult)",
+                }
+            },
             j_ace_computer_joker = {
                 name = "Computer Joker",
                 text = {
@@ -120,7 +128,7 @@ return {
                 name = "Haunted Joker",
                 text = {
                     "Decrease {C:attention}Blind requirement",
-                    "by {C:attention}#1#%{} when {C:tarot}Tarot{}",
+                    "by {C:green}#1#%{} when {C:tarot}Tarot{}",
                     "card is used",
                 }
             },
@@ -187,6 +195,14 @@ return {
                     "the {C:attention}number{} of your {C:attention}Jokers",
                 }
             },
+            j_ace_pufferfish = {
+                name = "Pufferfish",
+                text = {
+                    "{C:green}#1# in #2#{} chance to add",
+                    "{C:attention}Voucher{} to the {C:attention}shop",
+                    "each {C:green}reroll",
+                }
+            },
             j_ace_recall = {
                 name = "Recall",
                 text = {
@@ -243,6 +259,14 @@ return {
                     "This Joker gains {C:mult}+#2#{} Mult when",
                     "{C:attention}target{} is {C:attention}purchased",
                     "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
+                }
+            },
+            j_ace_tear_off_flayer = {
+                name = "Tear-Off Flayer",
+                text = {
+                    "{X:mult,C:white}X#1#{} Mult if {C:attention}adjacent{} Jokers",
+                    "shares the same {C:attention}rarity{},",
+                    "{C:chips}+#2#{} Chips otherwise",
                 }
             },
             j_ace_the_end = {

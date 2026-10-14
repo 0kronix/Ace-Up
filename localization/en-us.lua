@@ -4,6 +4,7 @@ return {
             ace_failed_ex = "Failed!",
             ace_boom_ex = "BOOM!",
             ace_return_ex = "Returned!",
+            ace_plus_voucher_ex = "+1 Voucher",
         },
         v_dictionary = {
             k_ace_plus_hand_size = "+#1# hand size",

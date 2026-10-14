@@ -39,7 +39,7 @@ SMODS.Joker {
             }))
 
             return {
-                message = "-" .. tostring(card.ability.extra.percent) .. "%"
+                message = tostring(-card.ability.extra.percent) .. "%"
             }
         end
     end,
