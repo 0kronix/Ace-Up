@@ -26,6 +26,33 @@ function Card:highlight(is_highlighted)
     end
 end
 
+
+
+local play_cards_ref = G.FUNCS.play_cards_from_highlighted
+function G.FUNCS.play_cards_from_highlighted(e)
+    local result = play_cards_ref(e)
+
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.3,
+        func = function()
+
+            local hand,_,_,_,_ = G.FUNCS.get_poker_hand_info(G.play.cards)
+            for _, tag in ipairs(G.GAME.tags) do
+                if not tag.triggered then
+                    tag:apply_to_run({ hand_played = true, hand = hand, cards = G.play.cards })
+                end
+            end
+
+            return true
+        end
+    }))
+
+    return result
+end
+
+
+
 local can_sell_ref = Card.can_sell_card
 function Card:can_sell_card(context)
     if ACE.can_sell_gold_card(self) then

@@ -1,0 +1,22 @@
+[manifest]
+version = "1.0.0"
+
+[[patches]]
+[patches.regex]
+target = "src/utils.lua"
+pattern = '''(?<indent>[\t ]*)function Tag:apply_to_run\(_context.*'''
+position = "after"
+line_prepend = "$indent"
+payload = '''
+local ace_apply_to_run_ref = Tag.apply_to_run
+function Tag:apply_to_run(_context)
+    if _context and _context.hand_played then
+        local obj = SMODS.Tags[self.key]
+        if obj and obj.apply and type(obj.apply) == 'function' and not self.triggered then
+            return obj:apply(self, _context)
+        end
+        return
+    end
+    return ace_apply_to_run_ref(self, _context)
+end
+'''
