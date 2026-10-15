@@ -20,6 +20,11 @@ SMODS.Joker {
     },
 
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = { key = "ace_suit_change_tarot", set = "Other" }
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_moon
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_star
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_sun
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_world
         main_end = {
             {
                 n = G.UIT.C,

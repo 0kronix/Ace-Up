@@ -95,24 +95,6 @@ end
 
 
 
-function ACE.random_legendary_joker(seed, exclude_key)
-    local pool = {}
-
-    for _, center in ipairs(G.P_JOKER_RARITY_POOLS[4] or {}) do
-        local in_pool = SMODS.add_to_pool(center)
-
-        if in_pool
-            and center.key ~= exclude_key
-            and not G.GAME.banned_keys[center.key] then
-            pool[#pool + 1] = center
-        end
-    end
-
-    return pseudorandom_element(pool, pseudoseed(seed))
-end
-
-
-
 function ACE.create_tag(tag, seed)
     local tag_pool = get_current_pool('Tag')
     local it = 1
@@ -173,6 +155,21 @@ ACE.add_to_deck = function(card)
             return true
         end
     }))
+end
+
+
+
+ACE.get_of_a_kind_hands = function()
+    if not G or not G.GAME or not G.GAME.hands then return nil end
+    local of_a_kind = {}
+
+    for hand_key, hand_data in pairs(G.GAME.hands) do
+        if type(hand_key) == "string" and hand_key:lower():find("of a kind", 1, true) then
+            table.insert(of_a_kind, hand_key)
+        end
+    end
+
+    return of_a_kind
 end
 
 

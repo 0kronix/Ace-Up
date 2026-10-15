@@ -41,7 +41,7 @@ SMODS.Joker {
                     end
                 }))
                 return {
-                    message = localize("ace_plus_voucher_ex"),
+                    message = localize("ace_plus_voucher"),
                 }
             end
         end

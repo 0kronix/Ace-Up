@@ -5,7 +5,8 @@ return {
                 name = "Gilded",
                 text = {
                     "Give {C:attention}random{} amount",
-                    "of {C:money}dollars{} from {C:money}$#1#{} to {C:money}$#2#",
+                    "of {C:money}dollars{} from",
+                    "{C:red}-$#1#{} to {C:money}$#2#",
                 }
             },
             e_ace_lustre = {
@@ -19,8 +20,9 @@ return {
             e_ace_prismatic = {
                 name = "Prismatic",
                 text = {
-                    "{C:green}#1# in #2#{} chance for this card",
-                    "to be retriggered {C:attention}#3#{} time",
+                    "{C:green}#1# in #2#{} chance for",
+                    "this card to be",
+                    "retriggered {C:attention}#3#{} time",
                 }
             },
         }
