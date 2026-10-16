@@ -9,7 +9,9 @@ ACE.optional_features = {
 local init_game_object_ref = Game.init_game_object
 function Game:init_game_object(...)
     local ret = init_game_object_ref(self, ...)
-    ret.ace = {}
+    ret.ace = {
+        ace_rune_edition_rate = 1
+    }
 
     return ret
 end

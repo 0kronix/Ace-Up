@@ -1,0 +1,15 @@
+return {
+    descriptions = {
+        Tarot = {
+            c_ace_wizard = {
+                name = "Wizard",
+                text = {
+                    "{C:green}#1# in #2#{} chance to add",
+                    "{C:dark_edition}Gilded{}, {C:dark_edition}Lustre{} or",
+                    "{C:dark_edition}Prismatic{} edition",
+                    "to a random {C:attention}Joker",
+                }
+            },
+        }
+    }
+}
