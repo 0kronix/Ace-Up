@@ -17,6 +17,7 @@ return {
             ace_return_ex = "Returned!",
 
             ace_plus_voucher = "+1 Voucher",
+            ace_plus_tag = "+1 Tag",
         },
         v_dictionary = {
             k_ace_plus_hand_size = "+#1# hand size",

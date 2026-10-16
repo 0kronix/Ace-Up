@@ -17,6 +17,6 @@ SMODS.Voucher {
     end,
 
     redeem = function(self, card)
-        G.GAME.ace_rune_edition_rate = card.ability.extra.rate
+        G.GAME.ace.rune_edition_rate = card.ability.extra.rate
     end
 }

@@ -229,10 +229,9 @@ return {
             j_ace_sparky = {
                 name = "Sparky",
                 text = {
-                    "This Joker gains {C:mult}+Mult",
-                    "equal to its {C:attention}sell value",
-                    "at end of round",
-                    "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)",
+                    "Create {C:attention}Star Tag",
+                    "if {C:attention}Blind{} is defeated",
+                    "with no {C:blue}hands{} left",
                 }
             },
             j_ace_steam_joker = {

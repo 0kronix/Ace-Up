@@ -34,6 +34,6 @@ SMODS.Edition {
     end,
 
 	get_weight = function(self)
-		return G.GAME.ace_rune_edition_rate * self.weight
+		return G.GAME.ace.rune_edition_rate * self.weight
 	end
 }
