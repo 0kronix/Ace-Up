@@ -18,17 +18,8 @@ SMODS.Edition {
 
     calculate = function(self, card, context)
         if context.pre_joker or (context.main_scoring and context.cardarea == G.play) then
-            G.E_MANAGER:add_event(Event({
-                trigger = 'after',
-                delay = 0.4,
-                func = function()
-                    ACE.ease_blind(-card.edition.percent)
-                    return true
-                end
-            }))
-
             return {
-                message = tostring(-card.edition.percent) .. "%"
+                ace_blind_size = -card.edition.percent
             }
         end
     end,

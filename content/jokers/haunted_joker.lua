@@ -29,17 +29,8 @@ SMODS.Joker {
 
     calculate = function(self, card, context)
         if context.using_consumeable and context.consumeable.ability.set == "Tarot" then
-            G.E_MANAGER:add_event(Event({
-                trigger = 'after',
-                delay = 0.4,
-                func = function()
-                    ACE.ease_blind(-card.ability.extra.percent)
-                    return true
-                end
-            }))
-
             return {
-                message = tostring(-card.ability.extra.percent) .. "%"
+                ace_blind_size = -card.ability.extra.percent
             }
         end
     end,

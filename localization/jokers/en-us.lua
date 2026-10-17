@@ -239,7 +239,6 @@ return {
                 text = {
                     "If {C:red}discard{} contain",
                     "only {C:attention}1{} card, {C:blue}play{} it",
-                    "{C:inactive}(Once per round)",
                 }
             },
             j_ace_stellar_dice = {
