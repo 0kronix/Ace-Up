@@ -1,5 +1,16 @@
 return {
     descriptions = {
+        Joker = {
+            j_ace_okronix = {
+                name = "Okronix",
+                text = {
+                    "Hey! I'm {C:legendary}author{}",
+                    "of this {C:dark_edition}Mod{}!",
+                    "I hope you enjoy",
+                    "{C:attention}playing{} it"
+                }
+            }
+        },
         Other = {
             ace_suit_change_tarot = {
                 name = "Suit Change Tarot",
@@ -18,6 +29,8 @@ return {
 
             ace_plus_voucher = "+1 Voucher",
             ace_plus_tag = "+1 Tag",
+
+            k_ace_author_badge = "Author",
         },
         v_dictionary = {
             k_ace_plus_hand_size = "+#1# hand size",
