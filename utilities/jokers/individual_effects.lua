@@ -40,8 +40,8 @@ SMODS.calculate_individual_effect = function(effect, scored_card, key, amount, f
         G.E_MANAGER:add_event(Event({
             trigger = "immediate",
             func = (function()
-                ease_colour(G.C.UI_CHIPS, mix_colours(G.C.ABN_PLASMA, G.C.UI_CHIPS, amount))
-                ease_colour(G.C.UI_MULT, mix_colours(G.C.ABN_PLASMA, G.C.UI_MULT, amount))
+                ease_colour(G.C.UI_CHIPS, mix_colours(G.C.ACE_PLASMA, G.C.UI_CHIPS, amount))
+                ease_colour(G.C.UI_MULT, mix_colours(G.C.ACE_PLASMA, G.C.UI_MULT, amount))
 
                 if not abn_balance_mixed then
                     abn_balance_mixed = true
@@ -68,14 +68,14 @@ SMODS.calculate_individual_effect = function(effect, scored_card, key, amount, f
             if from_edition then
                 card_eval_status_text(scored_card, "jokers", nil, percent, nil, {
                     message = text,
-                    colour = G.C.ABN_PLASMA,
+                    colour = G.C.ACE_PLASMA,
                     sound = "gong",
                     edition = true
                 })
             else
                 card_eval_status_text(effect.message_card or effect.juice_card or scored_card or effect.card or effect.focus, "extra", nil, percent, nil, {
                     message = text,
-                    colour = G.C.ABN_PLASMA,
+                    colour = G.C.ACE_PLASMA,
                     sound = "gong"
                 })
             end

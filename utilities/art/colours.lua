@@ -6,3 +6,5 @@ SMODS.Gradient {
     cycle = 1,
     interpolation = 'trig'
 }
+
+G.C.ACE_PLASMA = { 0.8, 0.45, 0.85, 1 }

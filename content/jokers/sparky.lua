@@ -39,7 +39,7 @@ SMODS.Joker {
             end
 
             return {
-                message = localize("ace_plus_tag"),
+                message = localize("k_ace_plus_tag"),
             }
         end
     end,

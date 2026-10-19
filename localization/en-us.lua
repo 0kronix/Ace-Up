@@ -27,8 +27,9 @@ return {
             ace_boom_ex = "BOOM!",
             ace_return_ex = "Returned!",
 
-            ace_plus_voucher = "+1 Voucher",
-            ace_plus_tag = "+1 Tag",
+            k_ace_plus_voucher = "+1 Voucher",
+            k_ace_plus_tag = "+1 Tag",
+            k_ace_plus_weapon = "+1 Weapon",
 
             k_ace_author_badge = "Author",
         },

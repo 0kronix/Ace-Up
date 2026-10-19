@@ -155,3 +155,15 @@ ACE.get_of_a_kind_hands = function()
 
     return of_a_kind
 end
+
+ACE.get_random_card_in_pool = function(pool, seed)
+    local cards = {}
+
+    for k, v in pairs(G.P_CENTER_POOLS[pool]) do
+        cards[#cards + 1] = v.key
+    end
+
+    local chosen_key = pseudorandom_element(cards, seed)
+
+    return chosen_key
+end
