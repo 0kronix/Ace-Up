@@ -22,8 +22,8 @@ function calculate_balance_percent_values(input_hand_chips, input_mult, percent)
     return new_hand_chips, new_mult
 end
 
-local abn_balance_mixed = false
-local abn_original_smods_calculate_effect = SMODS.calculate_individual_effect
+local ace_balance_mixed = false
+local ace_original_smods_calculate_effect = SMODS.calculate_individual_effect
 SMODS.calculate_individual_effect = function(effect, scored_card, key, amount, from_edition)
     if key == "ace_balance" then
         amount = amount / 100
@@ -43,8 +43,8 @@ SMODS.calculate_individual_effect = function(effect, scored_card, key, amount, f
                 ease_colour(G.C.UI_CHIPS, mix_colours(G.C.ACE_PLASMA, G.C.UI_CHIPS, amount))
                 ease_colour(G.C.UI_MULT, mix_colours(G.C.ACE_PLASMA, G.C.UI_MULT, amount))
 
-                if not abn_balance_mixed then
-                    abn_balance_mixed = true
+                if not ace_balance_mixed then
+                    ace_balance_mixed = true
 
                     G.E_MANAGER:add_event(Event({
                         trigger = "after",
@@ -55,7 +55,7 @@ SMODS.calculate_individual_effect = function(effect, scored_card, key, amount, f
                             if G.STATE ~= 2 then
                                 ease_colour(G.C.UI_CHIPS, G.C.BLUE, 2)
                                 ease_colour(G.C.UI_MULT, G.C.RED, 2)
-                                abn_balance_mixed = false
+                                ace_balance_mixed = false
                                 return true
                             end
                         end)
@@ -81,6 +81,7 @@ SMODS.calculate_individual_effect = function(effect, scored_card, key, amount, f
             end
         end
     end
+
     if key == "ace_blind_size" then
         local text = localize( {
             type = "variable",
@@ -93,14 +94,49 @@ SMODS.calculate_individual_effect = function(effect, scored_card, key, amount, f
             juice_card(effect.card)
         end
 
-        G.E_MANAGER:add_event(Event({
-            trigger = 'after',
-            delay = percent or 0.5,
-            func = function()
-                G.GAME.blind.chips = G.GAME.blind.chips + math.ceil(G.GAME.blind.chips * amount)
-                return true
-            end
-        }))
+        local desired_chip_amount = G.GAME.blind.chips + math.ceil(G.GAME.blind.chips * amount)
+        local chip_mod
+
+        if type(G.GAME.blind.chips) ~= "table" then
+            chip_mod = math.ceil(math.abs(desired_chip_amount - G.GAME.blind.chips) / 120)
+        else
+            chip_mod = ((desired_chip_amount - G.GAME.blind.chips):abs() / 120):ceil()
+        end
+
+        local step = 0
+        local chips_text_integer = G.GAME.blind.chips
+		G.BLIND_SIZE_DISPLAY_QUEUE = G.BLIND_SIZE_DISPLAY_QUEUE or {}
+
+		if chips_text_integer < desired_chip_amount then
+			while chips_text_integer < desired_chip_amount do
+				table.insert(G.BLIND_SIZE_DISPLAY_QUEUE, chips_text_integer)
+				chips_text_integer = chips_text_integer + G.SETTINGS.GAMESPEED * chip_mod
+			end
+		else
+			while chips_text_integer > desired_chip_amount do
+				table.insert(G.BLIND_SIZE_DISPLAY_QUEUE, chips_text_integer)
+				chips_text_integer = chips_text_integer - G.SETTINGS.GAMESPEED * chip_mod
+			end
+		end
+
+		G.E_MANAGER:add_event(Event({
+			trigger = "after",
+			blocking = true,
+			func = function()
+				if #G.BLIND_SIZE_DISPLAY_QUEUE > 0 then
+					table.remove(G.BLIND_SIZE_DISPLAY_QUEUE, 1)
+					if step % 5 == 0 then
+						play_sound("chips1", 0.8 + (step * 0.005))
+					end
+					step = step + 1
+				else
+					G.GAME.blind:wiggle()
+					return true
+				end
+			end,
+		}))
+
+        G.GAME.blind.chips = desired_chip_amount
 
         if not effect.remove_default_message then
             if from_edition then
@@ -117,5 +153,5 @@ SMODS.calculate_individual_effect = function(effect, scored_card, key, amount, f
         end
     end
 
-    return abn_original_smods_calculate_effect(effect, scored_card, key, amount, from_edition)
+    return ace_original_smods_calculate_effect(effect, scored_card, key, amount, from_edition)
 end

@@ -13,6 +13,7 @@ SMODS.Joker {
 
     unlocked = true,
     discovered = true,
+	no_collection = true,
 
 	set_card_type_badge = function(self, card, badges)
 		badges[#badges + 1] = create_badge(localize("k_ace_author_badge"), G.C.RARITY[4], G.C.WHITE, 1.2)

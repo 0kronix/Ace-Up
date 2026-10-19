@@ -31,12 +31,15 @@ ACE.get_pos = function(card, area)
             return i
         end
     end
+
     return 0
 end
 
 
 
 ACE.upgrade_all_hands = function(card, level)
+    level = level or 1
+
     update_hand_text({sound = 'button', volume = 0.7, pitch = 0.8, delay = 0.3}, {handname=localize('k_all_hands'),chips = '...', mult = '...', level=''})
 
     G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.2, func = function()
@@ -56,7 +59,7 @@ ACE.upgrade_all_hands = function(card, level)
     delay(1.3)
 
     for k, v in pairs(G.GAME.hands) do
-        level_up_hand(card, k, true, level)
+        SMODS.smart_level_up_hand(card, k, true, level)
     end
 
     update_hand_text({sound = 'button', volume = 0.7, pitch = 1.1, delay = 0}, {mult = 0, chips = 0, handname = '', level = ''})
@@ -100,12 +103,15 @@ end
 
 
 function ACE.consume(card, colour)
+    colour = colour or G.C.FILTER
+
     SMODS.destroy_cards(card, nil, nil, true)
+
     return {
         message = localize('k_eaten_ex'),
         card = card,
         message_card = card,
-        colour = colour or G.C.FILTER,
+        colour = colour,
     }
 end
 
@@ -156,6 +162,8 @@ ACE.get_of_a_kind_hands = function()
     return of_a_kind
 end
 
+
+
 ACE.get_random_card_in_pool = function(pool, seed)
     local cards = {}
 
@@ -167,3 +175,4 @@ ACE.get_random_card_in_pool = function(pool, seed)
 
     return chosen_key
 end
+

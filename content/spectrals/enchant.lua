@@ -23,6 +23,10 @@ SMODS.Consumable {
     end,
 
     use = function(self, card, area, copier)
+        if not self:can_use(card) then
+            return
+        end
+
         G.E_MANAGER:add_event(Event({
             trigger = 'after',
             delay = 0.4,

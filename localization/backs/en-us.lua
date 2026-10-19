@@ -10,6 +10,14 @@ return {
                     "{C:attention}#2#{} Joker Slots",
                 }
             },
+            b_ace_hotwave = {
+                name = "Hotwave Deck",
+                text = {
+                    "Gives {C:money}$#1#{} and",
+                    "{C:attention}continues{} round if",
+                    "hand is {C:ace_onfire}on fire",
+                }
+            },
         }
     }
 }

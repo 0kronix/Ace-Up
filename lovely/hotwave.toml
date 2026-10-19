@@ -1,0 +1,38 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 214748364
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "if G.GAME.chips - G.GAME.blind.chips >= 0 or G.GAME.current_round.hands_left < 1 then"
+position = "before"
+match_indent = true
+payload = '''
+if G.GAME.selected_back.name == "b_ace_hotwave" and not (G.GAME.current_round.hands_left < 1) and SMODS.last_hand_oneshot then
+    G.STATE = G.STATES.DRAW_TO_HAND
+    G.STATE_COMPLETE = false
+    return true
+end
+if G.STATE == G.STATES.NEW_ROUND then
+    return true
+end
+'''
+
+[[patches]]
+[patches.pattern]
+target = "blind.lua"
+pattern = "if self.boss and G.GAME.chips - G.GAME.blind.chips >= 0 then"
+position = "before"
+match_indent = true
+payload = '''
+if G.GAME.selected_back.name == "b_ace_hotwave" and not (G.GAME.current_round.hands_left < 1) and SMODS.last_hand_oneshot then
+    G.STATE = G.STATES.DRAW_TO_HAND
+    G.STATE_COMPLETE = false
+    return true
+end
+if G.STATE == G.STATES.NEW_ROUND then
+    return true
+end
+'''
