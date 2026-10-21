@@ -62,5 +62,5 @@ SMODS.Consumable {
                 end
             }))
         end
-    end,
+    end
 }

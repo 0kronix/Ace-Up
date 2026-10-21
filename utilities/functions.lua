@@ -176,3 +176,36 @@ ACE.get_random_card_in_pool = function(pool, seed)
     return chosen_key
 end
 
+
+
+ACE.create_voucher = function(voucher, seed, cost)
+    local voucher_pool = get_current_pool('Voucher')
+    local voucher_card = nil
+
+    if voucher == nil then
+        local it = 1
+        voucher = pseudorandom_element(voucher_pool, seed)
+        while voucher == 'UNAVAILABLE' do
+            it = it + 1
+            voucher = pseudorandom_element(voucher_pool, seed .. it)
+        end
+        voucher_card = SMODS.create_card({ area = G.play, key = voucher })
+    else
+        voucher_card = SMODS.create_card({ area = G.play, key = voucher })
+    end
+
+    voucher_card:start_materialize()
+    voucher_card.cost = cost
+    G.play:emplace(voucher_card)
+    delay(0.8)
+    voucher_card:redeem()
+
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.5,
+        func = function()
+            voucher_card:start_dissolve()
+            return true
+        end
+    }))
+end

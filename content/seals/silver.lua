@@ -1,6 +1,6 @@
 SMODS.Seal {
     key = "silver",
-    badge_colour = HEX("dae6ed"),
+    badge_colour = G.C.ACE_SILVER,
     atlas = "seals",
     pos = { x = 0, y = 0 },
 

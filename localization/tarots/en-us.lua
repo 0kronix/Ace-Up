@@ -10,6 +10,14 @@ return {
                     "to a random {C:attention}Joker",
                 }
             },
+            c_ace_origami = {
+                name = "Origami",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
         }
     }
 }
