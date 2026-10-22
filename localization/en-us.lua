@@ -23,6 +23,9 @@ return {
     },
     misc = {
         dictionary = {
+            b_weapon_cards = "Weapon Cards",
+            k_weapon = "Weapon",
+
             ace_failed_ex = "Failed!",
             ace_boom_ex = "BOOM!",
             ace_return_ex = "Returned!",
@@ -39,5 +42,8 @@ return {
             k_ace_minus_round = "-#1# round",
             k_ace_blind_size = "#1# Blind size",
         },
+        labels = {
+            weapon = "Weapon",
+        }
     }
 }
