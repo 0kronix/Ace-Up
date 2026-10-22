@@ -64,9 +64,10 @@ return {
             j_ace_collectible_card = {
                 name = "Collectible Card",
                 text = {
-                    "This Joker gains {X:mult,C:white}X#1#{} Mult",
-                    "every {C:money}$#2# {C:inactive}[#3#]{} of {C:attention}solded{} cards",
-                    "{C:inactive}(Currently {X:mult,C:white}X#4#{C:inactive} Mult)",
+                    "Give {X:mult,C:white}X#1#{} Mult for",
+                    "each {C:weapon}Weapon{} card",
+                    "used this run",
+                    "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
                 }
             },
             j_ace_computer_joker = {
@@ -130,6 +131,14 @@ return {
                     "Decrease {C:attention}Blind requirement",
                     "by {C:green}#1#%{} when {C:tarot}Tarot{}",
                     "card is used",
+                }
+            },
+            j_ace_jimbos_lost_coin = {
+                name = "Jimbos's Lost Coin",
+                text = {
+                    "This Joker gains {X:mult,C:white}X#1#{} Mult",
+                    "every {C:money}$#2# {C:inactive}[#3#]{} of {C:attention}solded{} cards",
+                    "{C:inactive}(Currently {X:mult,C:white}X#4#{C:inactive} Mult)",
                 }
             },
             j_ace_joke_bottom = {
