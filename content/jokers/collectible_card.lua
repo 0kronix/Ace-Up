@@ -29,7 +29,7 @@ SMODS.Joker {
     end,
 
     update = function(self, card, dt)
-        card.ability.extra.xmult = 1 + (G.GAME.ace.weapon_used or 0) * card.ability.extra.xmult_gain
+        card.ability.extra.xmult = 1 + (G.GAME.ace.weapons_used or 0) * card.ability.extra.xmult_gain
     end,
 
     calculate = function(self, card, context)

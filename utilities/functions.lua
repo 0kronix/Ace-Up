@@ -209,3 +209,19 @@ ACE.create_voucher = function(voucher, seed, cost)
         end
     }))
 end
+
+ACE.get_most_sell_item = function(area)
+    local most_sell = -999999
+    local most_sell_item = nil
+
+    if #area > 0 then
+        for _, item in ipairs(area) do
+            if item.sell_cost and item.sell_cost > most_sell then
+                most_sell_item = item
+                most_sell = item.sell_cost
+            end
+        end
+    end
+
+    return most_sell_item
+end

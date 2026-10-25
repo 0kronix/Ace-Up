@@ -1,0 +1,18 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 214748364
+
+# Thanks to AIJ mod!
+[[patches]] 
+[patches.pattern]
+target = "functions/state_events.lua"
+pattern = '''
+SMODS.last_hand_score = SMODS.calculate_round_score()
+SMODS.last_hand_oneshot = SMODS.last_hand_score >= G.GAME.blind.chips
+'''
+position = "before"
+payload = '''
+SMODS.calculate_context({full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands, ace = {before_round_end_check = true}, total_chips = math.floor(SMODS.calculate_round_score())})
+'''
+match_indent = true

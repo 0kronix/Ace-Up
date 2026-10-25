@@ -53,7 +53,7 @@ SMODS.Consumable {
             SMODS.calculate_effect({ message = localize('k_extinct_ex'), colour = G.C.MULT, sound = 'tarot1', }, card)
             SMODS.destroy_cards(card)
             SMODS.calculate_context({ ace_using_weapon = true })
-            G.GAME.ace.weapon_used = (G.GAME.ace.weapon_used or 0) + 1
+            G.GAME.ace.weapons_used = (G.GAME.ace.weapons_used or 0) + 1
         end
     end,
 }

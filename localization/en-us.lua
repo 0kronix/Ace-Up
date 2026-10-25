@@ -30,6 +30,9 @@ return {
             ace_boom_ex = "BOOM!",
             ace_return_ex = "Returned!",
 
+            ph_ace_rank = "[rank]",
+            ph_ace_suit = "[suit]",
+
             k_ace_plus_voucher = "+1 Voucher",
             k_ace_plus_tag = "+1 Tag",
             k_ace_plus_weapon = "+1 Weapon",

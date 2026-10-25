@@ -88,55 +88,10 @@ SMODS.calculate_individual_effect = function(effect, scored_card, key, amount, f
             key = "k_ace_blind_size",
             vars = { amount }
         } )
-        amount = amount / 100
 
         if effect.card and effect.card ~= scored_card then
             juice_card(effect.card)
         end
-
-        local desired_chip_amount = G.GAME.blind.chips + math.ceil(G.GAME.blind.chips * amount)
-        local chip_mod
-
-        if type(G.GAME.blind.chips) ~= "table" then
-            chip_mod = math.ceil(math.abs(desired_chip_amount - G.GAME.blind.chips) / 120)
-        else
-            chip_mod = ((desired_chip_amount - G.GAME.blind.chips):abs() / 120):ceil()
-        end
-
-        local step = 0
-        local chips_text_integer = G.GAME.blind.chips
-		G.BLIND_SIZE_DISPLAY_QUEUE = G.BLIND_SIZE_DISPLAY_QUEUE or {}
-
-		if chips_text_integer < desired_chip_amount then
-			while chips_text_integer < desired_chip_amount do
-				table.insert(G.BLIND_SIZE_DISPLAY_QUEUE, chips_text_integer)
-				chips_text_integer = chips_text_integer + G.SETTINGS.GAMESPEED * chip_mod
-			end
-		else
-			while chips_text_integer > desired_chip_amount do
-				table.insert(G.BLIND_SIZE_DISPLAY_QUEUE, chips_text_integer)
-				chips_text_integer = chips_text_integer - G.SETTINGS.GAMESPEED * chip_mod
-			end
-		end
-
-		G.E_MANAGER:add_event(Event({
-			trigger = "after",
-			blocking = true,
-			func = function()
-				if #G.BLIND_SIZE_DISPLAY_QUEUE > 0 then
-					table.remove(G.BLIND_SIZE_DISPLAY_QUEUE, 1)
-					if step % 5 == 0 then
-						play_sound("chips1", 0.8 + (step * 0.005))
-					end
-					step = step + 1
-				else
-					G.GAME.blind:wiggle()
-					return true
-				end
-			end,
-		}))
-
-        G.GAME.blind.chips = desired_chip_amount
 
         if not effect.remove_default_message then
             if from_edition then
@@ -151,7 +106,60 @@ SMODS.calculate_individual_effect = function(effect, scored_card, key, amount, f
                 })
             end
         end
+
+        ACE.ease_blind(amount)
     end
 
     return ace_original_smods_calculate_effect(effect, scored_card, key, amount, from_edition)
+end
+
+
+
+
+ACE.ease_blind = function(percent, wiggle)
+    local desired_chip_amount = G.GAME.blind.chips + math.ceil(G.GAME.blind.chips * (percent / 100))
+    local chip_mod
+
+    if type(G.GAME.blind.chips) ~= "table" then
+        chip_mod = math.ceil(math.abs(desired_chip_amount - G.GAME.blind.chips) / 120)
+    else
+        chip_mod = ((desired_chip_amount - G.GAME.blind.chips):abs() / 120):ceil()
+    end
+
+    local step = 0
+    local chips_text_integer = G.GAME.blind.chips
+    G.BLIND_SIZE_DISPLAY_QUEUE = G.BLIND_SIZE_DISPLAY_QUEUE or {}
+
+    if chips_text_integer < desired_chip_amount then
+        while chips_text_integer < desired_chip_amount do
+            table.insert(G.BLIND_SIZE_DISPLAY_QUEUE, chips_text_integer)
+            chips_text_integer = chips_text_integer + G.SETTINGS.GAMESPEED * chip_mod
+        end
+    else
+        while chips_text_integer > desired_chip_amount do
+            table.insert(G.BLIND_SIZE_DISPLAY_QUEUE, chips_text_integer)
+            chips_text_integer = chips_text_integer - G.SETTINGS.GAMESPEED * chip_mod
+        end
+    end
+
+    G.E_MANAGER:add_event(Event({
+        trigger = "after",
+        blocking = true,
+        func = function()
+            if #G.BLIND_SIZE_DISPLAY_QUEUE > 0 then
+                table.remove(G.BLIND_SIZE_DISPLAY_QUEUE, 1)
+                if step % 5 == 0 then
+                    play_sound("chips1", 0.8 + (step * 0.005))
+                end
+                step = step + 1
+            else
+                if wiggle then
+                    G.GAME.blind:wiggle()
+                end
+                return true
+            end
+        end,
+    }))
+
+    G.GAME.blind.chips = desired_chip_amount
 end
