@@ -61,6 +61,14 @@ return {
                     "{C:attention}unused{} hand",
                 }
             },
+            j_ace_card_bender = {
+                name = "Card Bender",
+                text = {
+                    "First {C:red}discarded{} card",
+                    "of round {C:attention}enhances{} into",
+                    "a {C:attention}Folded{} card",
+                }
+            },
             j_ace_collectible_card = {
                 name = "Collectible Card",
                 text = {
@@ -131,6 +139,15 @@ return {
                     "Decrease {C:attention}Blind requirement",
                     "by {C:green}#1#%{} when {C:tarot}Tarot{}",
                     "card is used",
+                }
+            },
+            j_ace_hug_ticket = {
+                name = "Hug Ticket",
+                text = {
+                    "After {C:attention}#3#{} rounds, {C:attention}sell",
+                    "this {C:attention}Joker{} to redeem",
+                    "{C:attention}#1#{} random {C:attention}Vouchers",
+                    "{C:inactive}(Currenly {C:attention}#2#{C:inactive}/{C:attention}#3#{C:inactive})",
                 }
             },
             j_ace_jimbos_lost_coin = {

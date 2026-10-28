@@ -11,23 +11,6 @@ end
 
 
 
-local highlight_ref = Card.highlight
-function Card:highlight(is_highlighted)
-    highlight_ref(self, is_highlighted)
-
-    ACE.remove_gold_sell_button(self)
-
-    if is_highlighted
-        and ACE.is_gold_card(self)
-        and self.area == G.hand
-        and ACE.gold_selling_enabled()
-    then
-        ACE.attach_gold_sell_button(self)
-    end
-end
-
-
-
 local play_cards_ref = G.FUNCS.play_cards_from_highlighted
 function G.FUNCS.play_cards_from_highlighted(e)
     local result = play_cards_ref(e)

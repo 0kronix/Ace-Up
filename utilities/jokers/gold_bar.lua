@@ -230,3 +230,18 @@ end
 G.FUNCS.ace_sell_gold_card = function(e)
     ACE.sell_gold_card(e.config.ref_table)
 end
+
+local highlight_ref = Card.highlight
+function Card:highlight(is_highlighted)
+    highlight_ref(self, is_highlighted)
+
+    ACE.remove_gold_sell_button(self)
+
+    if is_highlighted
+        and ACE.is_gold_card(self)
+        and self.area == G.hand
+        and ACE.gold_selling_enabled()
+    then
+        ACE.attach_gold_sell_button(self)
+    end
+end

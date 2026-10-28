@@ -29,6 +29,7 @@ return {
             ace_failed_ex = "Failed!",
             ace_boom_ex = "BOOM!",
             ace_return_ex = "Returned!",
+            ace_enhanced_ex = "Enhanced!",
 
             ph_ace_rank = "[rank]",
             ph_ace_suit = "[suit]",

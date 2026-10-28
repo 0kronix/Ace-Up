@@ -68,6 +68,13 @@ SMODS.Atlas({
     py = 95,
 })
 
+SMODS.Atlas({
+    key = "card_bender",
+    path = "card_bender.png",
+    px = 83,
+    py = 68,
+})
+
 SMODS.Atlas {
     key = 'blinds',
     path = 'blinds.png',
