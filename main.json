@@ -9,7 +9,7 @@
   "prefix": "ace",
   "main_file": "main.lua",
   "priority": 0,
-  "badge_colour": "fda200",
+  "badge_colour": "66cb6f",
   "badge_text_colour": "FFFFFF",
   "version": "1.0.0",
   "icon_path": "modicon.png",
