@@ -18,6 +18,14 @@ return {
                     "{C:attention}#2#",
                 },
             },
+            c_ace_tesla_coil = {
+                name = "Tesla Coil",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
         }
     }
 }
